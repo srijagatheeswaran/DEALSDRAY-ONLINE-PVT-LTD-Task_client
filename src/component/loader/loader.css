@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     background-color: whitesmoke;
+    z-index: 1000;
 }
 .loader {
     width: 8px;

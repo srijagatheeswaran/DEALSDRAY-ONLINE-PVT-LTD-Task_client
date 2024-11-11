@@ -32,9 +32,19 @@ nav div {
 }
 
 nav div button {
+    padding: 10px;
+    border: none;
+    border-radius: 3px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
     width: 100px;
     height: 40px;
     margin-right: 10px;
+}
+nav div button:hover {
+    background-color: #45a049;
 }
 .username{
     text-transform: capitalize;

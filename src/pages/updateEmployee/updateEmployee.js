@@ -6,8 +6,11 @@ import Loader from "../../component/loader/loader"
 import { useParams } from 'react-router-dom';
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import { useToast } from "../../context/ToastContext";
+
 
 export default function UpdateEmployee() {
+    const {showErrorToast,showSuccessToast}=useToast()
     const { email } = useParams();
     const [loader, setLoader] = useState(true)
     const fileInputRef = useRef(null); 
@@ -158,16 +161,19 @@ export default function UpdateEmployee() {
                 const data = await response.json();
 
                 if (response.ok) {
-                    alert("Update successful");
+                    // alert("Update successful");
+                    showSuccessToast("Update successful")
                     setErrors({});
                     setReload(!reload)
 
                 } else {
-                    alert(`Login failed: ${data.message}`);
+                    // alert(`Login failed: ${data.message}`);
+                    showErrorToast(data.message)
                 }
             } catch (error) {
                 console.error("Error during login:", error);
-                alert("An error occurred. Please try again later.");
+                showErrorToast(error)
+                // alert("An error occurred. Please try again later.");
             } finally {
                 setLoader(false)
             }
@@ -202,6 +208,7 @@ export default function UpdateEmployee() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        disabled
 
                     />
                     {errors.email && <span className="error">{errors.email}</span>}

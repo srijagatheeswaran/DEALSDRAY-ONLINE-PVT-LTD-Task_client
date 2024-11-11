@@ -7,6 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import Loader from "../../component/loader/loader"
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useToast } from "../../context/ToastContext";
 
 
 
@@ -14,6 +15,7 @@ import { useAuth } from "../../context/AuthContext";
 
 
 export default function EmployeeList() {
+    const {showErrorToast,showSuccessToast}=useToast()
     const [loader, setLoader] = useState(true)
     const navigate = useNavigate();
     const [employees, setEmployees] = useState([]);
@@ -78,15 +80,18 @@ export default function EmployeeList() {
             const data = await response.json();
 
             if (response.ok) {
-                alert("Delete successful");
+                // alert("Delete successful");
+                showSuccessToast("Delete successful")
                 setReload(!reload)
 
             } else {
-                alert(`Login failed: ${data.message}`);
+                // alert(`Login failed: ${data.message}`);
+                showErrorToast( data.message)
             }
         } catch (error) {
             console.error("Error during login:", error);
-            alert("An error occurred. Please try again later.");
+            // alert("An error occurred. Please try again later.");
+            showErrorToast(error)
         } finally {
             setLoader(false)
         }
@@ -136,7 +141,7 @@ export default function EmployeeList() {
     return <>
         <MenuProvider>
             <Header />
-            <div>
+            <div className="employeeList">
                 {loader ? <Loader /> : null}
                 <Navigation />
                 <div className="pageTitle">
@@ -145,7 +150,7 @@ export default function EmployeeList() {
                 <div className="CreateEmployee">
                     <p>Total Count:{employees.length}</p>
                     <Link to="/CreateEmployee">
-                        <button>Create Employee</button>
+                        <button className="button">Create Employee</button>
                     </Link>
                 </div>
                 <div className="searchBox">

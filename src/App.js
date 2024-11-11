@@ -1,4 +1,5 @@
 import './App.css';
+import { ToastProvider } from './context/ToastContext';
 import CreateEmployee from './pages/createEmployee/createEmployee';
 import Dashboard from './pages/dashboard/dashboard';
 import EmployeeList from './pages/employeeList/employeeList';
@@ -10,17 +11,18 @@ function App() {
 
   return (
     <>
-
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/home" element={<Dashboard />} />
-          <Route path="/EmployeeList" element={<EmployeeList />} />
-          <Route path="/CreateEmployee" element={<CreateEmployee />} />
-          <Route path="/updateEmployee/:email" element={<UpdateEmployee />} />
-        </Routes>
-      </BrowserRouter>
+      <ToastProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/home" element={<Dashboard />} />
+            <Route path="/EmployeeList" element={<EmployeeList />} />
+            <Route path="/CreateEmployee" element={<CreateEmployee />} />
+            <Route path="/updateEmployee/:email" element={<UpdateEmployee />} />
+          </Routes>
+        </BrowserRouter>
+      </ToastProvider>
 
     </>
   );

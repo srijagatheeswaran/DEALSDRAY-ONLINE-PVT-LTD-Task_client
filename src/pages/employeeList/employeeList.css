@@ -1,4 +1,6 @@
-
+.employeeList{
+    position: relative;
+}
 .CreateEmployee{
     width: 100%;
     display: flex;

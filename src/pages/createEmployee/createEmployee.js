@@ -5,6 +5,7 @@ import Loader from "../../component/loader/loader"
 import { useState, useRef,useContext, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { useToast } from "../../context/ToastContext";
 
 
 
@@ -13,9 +14,7 @@ import { useAuth } from "../../context/AuthContext";
 export default function CreateEmployee() {
     const [loader, setLoader] = useState(true)
     const navigate = useNavigate()
-
-    
-
+    const {showErrorToast,showSuccessToast}=useToast()
 
     const [formData, setFormData] = useState({
         name: '',
@@ -144,7 +143,8 @@ export default function CreateEmployee() {
                 const data = await response.json();
 
                 if (response.ok) {
-                    alert("Create successful");
+                    // alert("Create successful");
+                    showSuccessToast("Create successful")
                     setFormData({
                         name: '',
                         email: '',
@@ -159,11 +159,14 @@ export default function CreateEmployee() {
                     }
                     setErrors({});
                 } else {
-                    alert(`Login failed: ${data.message}`);
+                    // alert(`Login failed: ${data.message}`);
+                    showErrorToast(data.message)
                 }
             } catch (error) {
                 console.error("Error during login:", error);
-                alert("An error occurred. Please try again later.");
+                // alert("An error occurred. Please try again later.");
+                showErrorToast(error)
+
             } finally {
                 setLoader(false)
             }
@@ -198,7 +201,6 @@ export default function CreateEmployee() {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-
                     />
                     {errors.email && <span className="error">{errors.email}</span>}
 
