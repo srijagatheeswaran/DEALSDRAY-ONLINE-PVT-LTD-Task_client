@@ -1,0 +1,21 @@
+.pageTitle{
+    margin-top: 110px;
+    height: 40px;
+    width: 100%;
+    background: yellow;
+    display: flex;
+    align-items: center;
+    
+}
+.pageTitle p{
+    padding-left: 10px;
+}
+.dashBoardPanel{
+    margin-top: 100px;
+    text-align: center;
+}
+@media (max-width:569px){
+    .pageTitle{
+        margin-top: 55px;
+    }
+}

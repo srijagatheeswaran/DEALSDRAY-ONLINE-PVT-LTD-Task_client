@@ -1,0 +1,71 @@
+.form-container {
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.radio-group,
+.checkbox-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.radio-group label,
+.checkbox-group label {
+    font-weight: normal;
+    color: #333;
+}
+
+button[type="submit"] {
+    padding: 10px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+.error{
+    color: red;
+    padding-bottom: 5px ;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 15px;
+    }
+}

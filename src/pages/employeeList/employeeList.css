@@ -1,0 +1,102 @@
+
+.CreateEmployee{
+    width: 100%;
+    display: flex;
+    height: max-content;
+    padding: 10px 0;
+    justify-content: end;
+    gap: 15px;
+    align-items: center;
+}
+.searchBox{
+    width: 100%;
+    display: flex;
+    height: max-content;
+    padding: 8px 0;
+    justify-content: end;
+    gap: 30px;
+    align-items: center;
+    background-color:rgb(207, 207, 253);
+
+}
+.CreateEmployee button{
+    width: max-content;
+    height: 40px;
+    margin: 10px;
+}
+.searchBox input{
+    width: 300px;
+    height: 35px;
+    margin: 0 10px;
+    padding: 0 5px;
+    outline: none;
+}
+.employeePanel{
+    overflow-x: scroll;
+    max-width: 100%;
+    /* position:relative; */
+
+
+}
+.employeePanel::-webkit-scrollbar {
+    height: 10px; 
+    /* color: #333; */
+}
+.employeePanel::-webkit-scrollbar-track {
+    background-color:rgb(207, 207, 253); 
+    border-radius: 5px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+}
+
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    /* background-color: #4CAF50; */
+    background-color:rgb(207, 207, 253);
+    color:black;
+    font-weight: bold;
+}
+
+td {
+    color: #333;
+}
+
+tr:hover {
+    background-color: #f2f2f2;
+}
+
+img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+i {
+    cursor: pointer;
+    margin-right: 10px;
+    color: #555;
+    font-size: 1.2em;
+}
+
+i:hover {
+    color: #333;
+}
+@media (max-width:569px) {
+    .searchBox label{
+        display: none;
+    }
+    .searchBox{
+        justify-content: center;
+    }
+
+}
