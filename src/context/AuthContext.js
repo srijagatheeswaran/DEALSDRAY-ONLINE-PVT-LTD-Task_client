@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
 
     const checkAuth = async ( token) => {
         try {
-            const response = await fetch('http://localhost:4000/api/admin/verify-token', {
+            const response = await fetch('https://employee-data-admin.onrender.com/api/admin/verify-token', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token }),

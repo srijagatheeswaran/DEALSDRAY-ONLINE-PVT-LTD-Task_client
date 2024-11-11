@@ -132,7 +132,7 @@ export default function CreateEmployee() {
 
             try {
                 setLoader(true)
-                const response = await fetch('http://localhost:4000/api/employee/create', {
+                const response = await fetch('https://employee-data-admin.onrender.com/api/employee/create', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

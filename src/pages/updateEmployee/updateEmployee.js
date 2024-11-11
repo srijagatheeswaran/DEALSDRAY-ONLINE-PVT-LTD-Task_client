@@ -52,7 +52,7 @@ export default function UpdateEmployee() {
             setLoader(true); 
 
             try {
-                const response = await fetch(`http://localhost:4000/api/employee/employees/${email}`);
+                const response = await fetch(`https://employee-data-admin.onrender.com/api/employee/employees/${email}`);
                 if (response.ok) {
                     const data = await response.json();
                     
@@ -150,7 +150,7 @@ export default function UpdateEmployee() {
             // console.log(formData)
             try {
                 setLoader(true)
-                const response = await fetch('http://localhost:4000/api/employee/update', {
+                const response = await fetch('https://employee-data-admin.onrender.com/api/employee/update', {
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
